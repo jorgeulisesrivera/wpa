@@ -1,0 +1,2 @@
+npm init -y
+yarn add next reat react-dom
