@@ -19,6 +19,8 @@ class MyDocument extends Document {
             <meta name="apple-mobile-web-app-title" content="Hello World"/> 
             <meta name="msapplication-TileImage" content="static/hello-icon-144.png"/>  
             <meta name="msapplication-TileColor" content="#FFFFFF"></meta>
+            <link rel="stylesheet" href="static/style.css"></link>
+            <script src="static/main.js"></script>
         </Head>
         <body>
           <Main />
