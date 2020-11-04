@@ -22,7 +22,8 @@ class MyDocument extends Document {
         <meta name="apple-mobile-web-app-title" content="Hello World"/>
         <meta name="msapplication-TileImage" content="images/hello-icon-144.png"/>
         <meta name="msapplication-TileColor" content="#FFFFFF"/>
-        <script src="/addtohomescreen.min.js"></script>
+        <script src="/addtohomescreen.js"></script>
+        <link rel="stylesheet" type="text/css" href="addtohomescreen.css"></link>
         <script>
         addToHomescreen();
         </script>

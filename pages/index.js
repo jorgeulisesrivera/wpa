@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = ()=>{
     return(<div>
-        new shop 2!
+        new shop 3
 
 
     
