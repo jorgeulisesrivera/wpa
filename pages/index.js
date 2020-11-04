@@ -4,9 +4,6 @@ const Home = ()=>{
     return(<div>
         new shop 3
 
-
-    
-
     </div>)
 }
 
