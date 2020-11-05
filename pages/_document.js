@@ -22,17 +22,6 @@ class MyDocument extends Document {
         <meta name="apple-mobile-web-app-title" content="Hello World"/>
         <meta name="msapplication-TileImage" content="images/hello-icon-144.png"/>
         <meta name="msapplication-TileColor" content="#FFFFFF"/>
-        <link rel="stylesheet" type="text/css" href="/addtohomescreen.css"/>
-        <script src="/addtohomescreen.js"></script>
-        <script>
-        if(
-          (("standalone" in window.navigator) && !window.navigator.standalone)
-          || 
-          (!window.matchMedia('(display-mode: standalone)').matches)
-        ){
-          addToHomescreen()
-        }
-        </script>
         </Head>
         <body>
           <Main />
