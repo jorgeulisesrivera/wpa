@@ -1,2 +1,12 @@
 npm init -y
 yarn add next reat react-dom
+
+
+npm install web-push
+
+
+
+
+NO lo que sigue:
+ssh-keygen -t rsa -C "jorgeulisesrivera.agmail.com"               
+quise que quedara guardado como id_rsa_push

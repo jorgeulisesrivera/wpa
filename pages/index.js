@@ -23,14 +23,10 @@ const Home = ()=>{
                 // prompt() can only be called once.
                 global.deferredPrompt = null;
                 // Hide the install button.
-                divInstall.classList.toggle('hidden', true);
+                //divInstall.classList.toggle('hidden', true);
             });
 
-
-
         }}>INSTALAR APP</button>
-
-
 
     </div>)
 }
