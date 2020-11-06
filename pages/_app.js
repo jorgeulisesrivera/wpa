@@ -1,31 +1,31 @@
-import { useEffect } from "react"
+import React, { useEffect,useState } from "react"
+import {register,WpaContext} from '../wpa'
+
+
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    if("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-       navigator.serviceWorker.register("/sw.js").then(
-          function (registration) {
-            console.log("Service Worker registration successful with scope: ", registration.scope);
-          },
-          function (err) {
-            console.log("Service Worker registration failed: ", err);
-          }
-        );
-      });
-    }
-  }, [])
+  
+    //WPA:
+    const [deferredPrompt,setDeferredPrompt] = useState(null);
+    useEffect(() => {
 
-  useEffect(() => {
-    window.addEventListener('beforeinstallprompt', (event) => {
-        console.log('👍', 'beforeinstallprompt', event);
-        // Stash the event so it can be triggered later.
-        global.deferredPrompt = event;
-        // Remove the 'hidden' class from the install button container
-        //divInstall.classList.toggle('hidden', false);
-    });
-  }, []);
+        //EVENT INSTALL PROMPT:
+        window.addEventListener('beforeinstallprompt', (event) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            event.preventDefault();
+            // Stash the event so it can be triggered later.
+            setDeferredPrompt(event);
+        });
 
-  return <Component {...pageProps} />
+        //REGISTER SW:
+        register().then(swRegistration=>{})
+        .catch(err=>{
+            console.log("WPA ERROR",err);
+        });
+
+    }, []);
+
+
+  return <WpaContext.Provider value={deferredPrompt}><Component {...pageProps} /></WpaContext.Provider>
 }
 
 export default MyApp

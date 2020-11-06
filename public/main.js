@@ -3,7 +3,9 @@ const publicVapidKey    = 'BGq040fkchG4qNS33DQQ-fw5VWOBizU40yQrQVGEDvqcmsojOYnPj
 const privateKey        = "oX_Jpk3kRhIKAeQEk4Sy6_Ak1exFGBXO-e00POsNCiQ";
 
 
-const saveSubscription = async subscription => {console.log("enviando",JSON.stringify(subscription));
+const saveSubscription = async subscription => {
+    return;
+    console.log("enviando",JSON.stringify(subscription));
     // POST a nuestro servidor con la subscrición
     const res = await fetch("https://ii3642raag.execute-api.us-east-1.amazonaws.com/development/webpush", {
       method: 'POST',
@@ -45,7 +47,7 @@ const register = async () => {
     if ('serviceWorker' in navigator) {
       const swRegistration = await registerServiceWorker();
       // Pasamos el ServiceWorkerRegistration
-      await generateSubscription(swRegistration);
+      //await generateSubscription(swRegistration);                                             SOLO REGISTRO POR AHORA
     } else throw new Error('ServiceWorkers are not supported by your browser!');
 };
 
@@ -68,4 +70,5 @@ window.onload = () => {
       register();
     }
 }
-  
+
+

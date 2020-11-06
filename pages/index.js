@@ -1,32 +1,28 @@
-import React from 'react'
+import React,{useEffect,useContext} from 'react'
+import {WpaContext} from '../wpa'
 
 const Home = ()=>{
+
+    let _WpaContext = useContext(WpaContext);
+
     return(<div>
-        new shop 3
+        new shop 4
 
+        {_WpaContext !== null &&<button onClick={()=>{
 
-        <button onClick={()=>{
-
-
-            console.log('👍', 'butInstall-clicked');
-            const promptEvent = global.deferredPrompt;
-            if (!promptEvent) {
-                // The deferred prompt isn't available.
-                return;
-            }
-            // Show the install prompt.
+            let promptEvent = _WpaContext;
             promptEvent.prompt();
-            // Log the result
-            promptEvent.userChoice.then((result) => {
-                console.log('👍', 'userChoice', result);
-                // Reset the deferred prompt variable, since
-                // prompt() can only be called once.
-                global.deferredPrompt = null;
-                // Hide the install button.
-                //divInstall.classList.toggle('hidden', true);
+            // Wait for the user to respond to the prompt
+            promptEvent.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                promptEvent = null;
             });
 
-        }}>INSTALAR APP</button>
+        }}>Add to home screen</button>}
 
     </div>)
 }
