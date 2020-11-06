@@ -13,10 +13,13 @@ const register = () => {
     })
 }
 
-//REGISTER SW:
-register().then(swRegistration=>{
-  console.log("SW Registrado!");
-})
-.catch(err=>{
-  console.log("SW ERROR",err);
-});
+window.onload = () => {
+  'use strict';
+  //REGISTER SW:
+  register().then(swRegistration=>{
+    console.log("SW Registrado!");
+  })
+  .catch(err=>{
+    console.log("SW ERROR",err);
+  });
+}
