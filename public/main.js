@@ -13,7 +13,7 @@ const register = () => {
     })
 }
 
-window.onload = () => {
+window.onload = () => {console.log("WINDOW.ONLOAD");
   'use strict';
   //REGISTER SW:
   register().then(swRegistration=>{
