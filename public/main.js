@@ -2,7 +2,7 @@
 const register = () => {
     return new Promise((resolve, reject) => {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('https://master.du9rif2rdddi3.amplifyapp.com/sw.js').then(swRegistration=>{
+            navigator.serviceWorker.register('./sw.js').then(swRegistration=>{
                 resolve(swRegistration);
             }).catch(err=>{
                 reject(err);
