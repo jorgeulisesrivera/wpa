@@ -7,14 +7,22 @@ function MyApp({ Component, pageProps }) {
     //WPA:
     const [deferredPrompt,setDeferredPrompt] = useState(null);
     useEffect(() => {
-        //console.log("WINDOW.addEventListener");
-        //EVENT INSTALL PROMPT:
-        /*window.addEventListener('beforeinstallprompt', (event) => {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
-            event.preventDefault();
-            // Stash the event so it can be triggered later.
-            setDeferredPrompt(event);
-        });*/
+
+        //REGISTRAR SW:
+        register().then(swRegistration=>{
+            console.log("SW Registrado.");
+            //CAPTURAR PROMPT DE INSTALACION PARA USARLO MAS ADELANTE A NUESTRO FAVOR:
+            window.addEventListener('beforeinstallprompt', (event) => {
+                console.log("EVENT beforeinstallprompt.");
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                event.preventDefault();
+                // Stash the event so it can be triggered later.
+                //setDeferredPrompt(event);
+            });
+        })
+        .catch(err=>{
+            console.log("SW ERROR",err);
+        });
 
     }, []);
 

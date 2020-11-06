@@ -6,7 +6,7 @@ const Home = ()=>{
     let _WpaContext = useContext(WpaContext);
 
     return(<div>
-        new shop 7
+        new shop 8
 
         {_WpaContext !== null &&<button onClick={()=>{
 
