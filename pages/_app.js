@@ -8,16 +8,18 @@ function MyApp({ Component, pageProps }) {
     const [deferredPrompt,setDeferredPrompt] = useState(null);
     useEffect(() => {
 
-        //EVENT INSTALL PROMPT:
-        window.addEventListener('beforeinstallprompt', (event) => {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
-            event.preventDefault();
-            // Stash the event so it can be triggered later.
-            setDeferredPrompt(event);
-        });
-
         //REGISTER SW:
-        register().then(swRegistration=>{})
+        register().then(swRegistration=>{
+
+            //EVENT INSTALL PROMPT:
+            window.addEventListener('beforeinstallprompt', (event) => {
+                // Prevent Chrome 67 and earlier from automatically showing the prompt
+                event.preventDefault();
+                // Stash the event so it can be triggered later.
+                setDeferredPrompt(event);
+            });
+
+        })
         .catch(err=>{
             console.log("WPA ERROR",err);
         });
