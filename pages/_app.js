@@ -7,14 +7,14 @@ function MyApp({ Component, pageProps }) {
     //WPA:
     const [deferredPrompt,setDeferredPrompt] = useState(null);
     useEffect(() => {
-        console.log("WINDOW.addEventListener");
+        //console.log("WINDOW.addEventListener");
         //EVENT INSTALL PROMPT:
-        window.addEventListener('beforeinstallprompt', (event) => {
+        /*window.addEventListener('beforeinstallprompt', (event) => {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
             event.preventDefault();
             // Stash the event so it can be triggered later.
             setDeferredPrompt(event);
-        });
+        });*/
 
     }, []);
 
